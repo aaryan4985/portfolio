@@ -4,14 +4,14 @@ import ProjectCard from '../components/ProjectCard';
 export default function Home() {
   const projects = [
     {
-      title: "Flop App",
-      type: "Social media for poker players",
-      image: "/images/flop-app.png"
+      title: "Clubhouse",
+      type: "Centralised platform for all your club activities",
+      image: ".src/images/IMG_20241219_093041.jpg"
     },
     {
-      title: "Landscape",
-      type: "Lend and Borrow Dashboard",
-      image: "/images/landscape.png"
+      title: "Dyte",
+      type: "Diet and Nutrition App",
+      image: "./Screenshot 2024-12-23 173343.png"
     },
     {
       title: "Tribe.so Admin",

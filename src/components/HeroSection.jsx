@@ -25,7 +25,7 @@
             </div>
             <div className="bg-amber-300 rounded-2xl overflow-hidden">
             <img
-                src="src/assets/IMG_20241219_093041.jpg"
+                src=""
                 alt="Profile"
                 className="w-full h-full object-cover"
             />
