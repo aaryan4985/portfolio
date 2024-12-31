@@ -117,8 +117,7 @@ export default function Home() {
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.8, delay: 0.4 }}
                   >
-                    I care a lot about using design for positive impact, and enjoy creating 
-                    user-centric, delightful, and human experiences.
+                    I’m into blending tech wizardry with a touch of creativity, crafting experiences that resonate, inspire, and make life a little more awesome—because why settle for ordinary?
                   </motion.p>
                 </div>
 
@@ -243,7 +242,8 @@ export default function Home() {
               <p className="text-gray-600 text-lg mb-8 max-w-2xl mx-auto">
                 I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.
               </p>
-              <button className="group bg-black text-white px-8 py-4 rounded-full hover:bg-gray-800 transition-all duration-300 text-lg font-medium relative overflow-hidden">
+              <button
+               className="group bg-black text-white px-8 py-4 rounded-full hover:bg-gray-800 transition-all duration-300 text-lg font-medium relative overflow-hidden">
                 <span className="relative z-10">Get in Touch</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-amber-400 to-amber-600 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
               </button>

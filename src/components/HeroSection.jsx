@@ -1,4 +1,5 @@
 import { Github, Linkedin, Instagram } from 'lucide-react';
+import { Link } from 'react-router-dom'; // Ensure you have react-router-dom installed
 
 export default function HeroSection() {
   return (
@@ -13,36 +14,37 @@ export default function HeroSection() {
               Web Developer & Computer Science Graduate
             </h2>
             <p className="text-gray-600 text-lg leading-relaxed">
-              I care a lot about using design for positive impact, and enjoy creating 
-              user-centric, delightful, and human experiences.
+              I’m into blending tech wizardry with a touch of creativity, crafting experiences that resonate, inspire, and make life a little more awesome—because why settle for ordinary?
             </p>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-6">
-            <button className="bg-black text-white px-8 py-4 rounded-full hover:bg-gray-800 transition-colors duration-300 text-lg font-medium">
-              Contact me
-            </button>
+            <Link to="/contact">
+              <button className="bg-black text-white px-8 py-4 rounded-full hover:bg-gray-800 transition-colors duration-300 text-lg font-medium">
+                Contact me
+              </button>
+            </Link>
             <div className="flex items-center space-x-6">
-              <a 
-                href="https://github.com/aaryan4985" 
+              <a
+                href="https://github.com/aaryan4985"
                 className="text-gray-700 hover:text-black transition-colors duration-300"
-                target="_blank" 
+                target="_blank"
                 rel="noopener noreferrer"
               >
                 <Github size={24} />
               </a>
-              <a 
-                href="https://www.linkedin.com/in/aaryanpradhan2611" 
+              <a
+                href="https://www.linkedin.com/in/aaryanpradhan2611"
                 className="text-gray-700 hover:text-black transition-colors duration-300"
-                target="_blank" 
+                target="_blank"
                 rel="noopener noreferrer"
               >
                 <Linkedin size={24} />
               </a>
-              <a 
-                href="https://www.instagram.com/aryn.026" 
+              <a
+                href="https://www.instagram.com/aryn.026"
                 className="text-gray-700 hover:text-black transition-colors duration-300"
-                target="_blank" 
+                target="_blank"
                 rel="noopener noreferrer"
               >
                 <Instagram size={24} />
