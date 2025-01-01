@@ -16,3 +16,18 @@ code {
     monospace;
 }
 
+html::-webkit-scrollbar{
+  width: 1rem;
+}
+
+
+
+
+html::-webkit-scrollbar-track{
+  background: white;
+}
+
+html::-webkit-scrollbar-thumb{
+  background: #FFC107;
+}
+
