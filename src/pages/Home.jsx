@@ -474,7 +474,7 @@
                 <div>
                 <h3 className="text-xl font-bold mb-4">Quick Links</h3>
                 <ul className="space-y-2">
-                    {['About', 'projects', 'Contact'].map((item) => (
+                    {['Hero', 'projects', 'Contact'].map((item) => (
                     <li key={item}>
                         <a href={`#${item.toLowerCase()}`} className="text-gray-600 hover:text-amber-600 transition-colors duration-300">
                         {item}

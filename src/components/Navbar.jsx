@@ -6,15 +6,15 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         <Link 
           to="/" 
-          className="font-bold text-xl bg-gradient-to-r from-black to-gray-700 bg-clip-text text-transparent"
+          className="font-bold text-xl bg-gradient-to-r from-amber-500 to-amber-700 bg-clip-text text-transparent"
         >
           Aaryan
         </Link>
         <div className="hidden md:flex space-x-8">
-          <Link to="/" className="hover:text-gray-600 transition-colors">Home</Link>
-          <Link to="/about" className="hover:text-gray-600 transition-colors">About</Link>
-          <Link to="/works" className="hover:text-gray-600 transition-colors">Works</Link>
-          <Link to="/contact" className="hover:text-gray-600 transition-colors">Contact</Link>
+          <Link to="/" className="hover:text-amber-600 transition-colors">Home</Link>
+          <Link to="/about" className="hover:text-amber-600 transition-colors">About</Link>
+          <Link to="/works" className="hover:text-amber-600 transition-colors">Works</Link>
+          <Link to="/contact" className="hover:text-amber-600 transition-colors">Contact</Link>
         </div>
       </div>
     </nav>
