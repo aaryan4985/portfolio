@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Github, Linkedin, Instagram, ArrowDown } from 'lucide-react';
 import ProjectCard from '../components/ProjectCard';
 import Navbar from '../components/Navbar';
+import { useNavigate } from 'react-router-dom';
 
 const TypewriterText = ({ words }) => {
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
@@ -43,9 +44,13 @@ const TypewriterText = ({ words }) => {
   );
 };
 
+
+
 export default function Home() {
   const [scrollY, setScrollY] = useState(0);
   
+  const navigate = useNavigate();
+
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
     window.addEventListener('scroll', handleScroll);
@@ -127,7 +132,9 @@ export default function Home() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.6 }}
                 >
-                  <button className="group bg-black text-white px-8 py-4 rounded-full hover:bg-gray-800 transition-all duration-300 text-lg font-medium relative overflow-hidden">
+                  <button
+                  onClick={() => navigate('/contact')}
+                   className="group bg-black text-white px-8 py-4 rounded-full hover:bg-gray-800 transition-all duration-300 text-lg font-medium relative overflow-hidden">
                     <span className="relative z-10">Contact me</span>
                     <div className="absolute inset-0 bg-gradient-to-r from-amber-400 to-amber-600 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
                   </button>
@@ -243,6 +250,7 @@ export default function Home() {
                 I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.
               </p>
               <button
+              onClick={() => navigate('/contact')}
                className="group bg-black text-white px-8 py-4 rounded-full hover:bg-gray-800 transition-all duration-300 text-lg font-medium relative overflow-hidden">
                 <span className="relative z-10">Get in Touch</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-amber-400 to-amber-600 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
