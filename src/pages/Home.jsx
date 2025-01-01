@@ -84,37 +84,37 @@ export default function Home() {
   }, []);
 
   const skills = [
-    "React", "Node.js", "TypeScript", "Python", "AWS", "Docker",
-    "MongoDB", "GraphQL", "Next.js", "TailwindCSS"
+    "React", "Node.js", "TypeScript", "Python", "C", "C++", "Java", "JavaScript", "HTML", "CSS", "SQL","git", 
+    "MongoDB", "Next.js", "TailwindCSS"
   ];
 
   const projects = [
     {
-      title: "E-Commerce Platform",
-      description: "A full-stack e-commerce solution with modern UI, real-time updates, and seamless payment integration.",
+      title: "Clubhouse",
+      description: "A full-stack providing centralised platform for clubs and societies to manage events, memberships.",
       image: "/projects/clubhouse.png",
       type: "Full Stack Development",
-      technologies: ["React", "Node.js", "MongoDB", "Stripe"],
-      demoLink: "#",
-      githubLink: "#"
+      technologies: ["TypeScript", "JavaScript", "Firebase", "TailwindCSS"],
+      demoLink: "https://clubhouse-sigma.vercel.app/",
+      githubLink: "https://github.com/aaryan4985/ClubHouse"
     },
     {
-      title: "Portfolio Website",
-      description: "A modern portfolio showcasing work with smooth animations and responsive design.",
-      image: "/projects/portfolio.png",
+      title: "Dyte",
+      description: "Dyte is your go-to diet planning platform, offering personalized meal plans and fitness recommendations to help you achieve a healthier lifestyle.",
+      image: "/projects/dyte.png",
       type: "Frontend Development",
-      technologies: ["React", "TailwindCSS", "Framer Motion"],
-      demoLink: "#",
-      githubLink: "#"
+      technologies: ["HTML5", "CSS", "JavaScript"],
+      demoLink: "https://aaryan4985.github.io/Dyte/",
+      githubLink: "https://github.com/aaryan4985/Dyte"
     },
     {
-      title: "Task Management App",
-      description: "Real-time collaborative task management with team features and analytics.",
-      image: "/projects/taskapp.png",
+      title: "Message Saver",
+      description: "Message Saver securely stores and organizes your important messages for easy access.",
+      image: "/projects/msg.png",
       type: "Web Application",
-      technologies: ["React", "Firebase", "TypeScript"],
-      demoLink: "#",
-      githubLink: "#"
+      technologies: ["Python", "Flask", "TailwindCSS"],
+      demoLink: "https://flask-message-saver.vercel.app/",
+      githubLink: "https://github.com/aaryan4985/Flask-Message-Saver"
     }
   ];
 
@@ -256,13 +256,14 @@ export default function Home() {
               transition={{ duration: 0.8, delay: 0.4 }}
             >
               <div className="absolute inset-0 bg-gradient-to-r from-amber-200 to-amber-300 rounded-full blur-3xl opacity-20 animate-pulse" />
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl transform hover:scale-105 transition-transform duration-300">
-                <img
-                  src="/projects/Aaryan_pradhan (2).png"
-                  alt="Aaryan Pradhan"
-                  className="w-full h-full object-cover"
-                />
-              </div>
+<div className="relative w-80 h-85 rounded-2xl overflow-hidden shadow-2xl transform hover:scale-105 transition-transform duration-300">
+  <img
+    src="/projects/pfp (1).jpg"
+    alt="Aaryan Pradhan"
+    className="w-full h-full object-cover"
+  />
+</div>
+
             </motion.div>
           </div>
 
