@@ -179,10 +179,12 @@ export default function Home() {
                 <h2 className="text-2xl md:text-3xl font-semibold text-gray-700">
                   <TypewriterText words={[
                     "Full Stack Developer",
-                    "UI/UX Enthusiast",
+                    "Computer Science Undergraduate",    
+                    "DSA Enthusiast",
                     "Problem Solver",
-                    "Tech Innovator",
-                    "Code Architect"
+                    "Hackathon Enthusiast",
+                    "Code Architect",
+                    "AI/ML Enthusiast"
                   ]} />
                 </h2>
                 
@@ -472,7 +474,7 @@ export default function Home() {
             <div>
               <h3 className="text-xl font-bold mb-4">Quick Links</h3>
               <ul className="space-y-2">
-                {['About', 'Projects', 'Contact', 'Blog'].map((item) => (
+                {['About', 'projects', 'Contact'].map((item) => (
                   <li key={item}>
                     <a href={`#${item.toLowerCase()}`} className="text-gray-600 hover:text-amber-600 transition-colors duration-300">
                       {item}
