@@ -142,7 +142,7 @@ export const HeroSection = ({ skills }) => {
           transition={{ duration: 0.8, delay: 0.4 }}
         >
           <div className="absolute inset-0 bg-gradient-to-r from-amber-200 to-amber-300 rounded-full blur-3xl opacity-20 animate-pulse" />
-          <div className="relative w-80 h-80 rounded-2xl overflow-hidden shadow-2xl transform hover:scale-105 transition-transform duration-300">
+          <div className="relative w-100 h-80 rounded-2xl overflow-hidden shadow-2xl transform hover:scale-105 transition-transform duration-300">
             <div className="absolute inset-0 bg-gradient-to-b from-amber-400/20 to-amber-600/20" />
             <img
               src="/projects/pfp (1).jpg"
