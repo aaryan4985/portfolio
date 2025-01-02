@@ -371,7 +371,7 @@
                 >
                 <button
                     onClick={() => navigate('/works')}
-                    className="inline-flex items-center gap-2 bg-gray-100 text-gray-800 px-6 py-3 rounded-full hover:bg-gray-200 transition-colors duration-300"
+                    className="inline-flex items-center gap-2 bg-gray-100 text-gray-800 px-6 py-3 rounded-full hover:bg-amber-200 transition-colors duration-300"
                 >
                     View All Projects
                     <ArrowDown className="w-4 h-4 transform rotate-90" />
