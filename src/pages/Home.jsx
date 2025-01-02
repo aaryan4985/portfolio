@@ -53,9 +53,20 @@ export default function Home() {
         title: "Dyte",
         description: "A platform to provide diet plans and workout routines, with features like calorie tracking, meal planning, and progress tracking.",
         image: "/projects/dyte.png", 
+        type: "Web Application",
         technologies: ["HTML5", "CSS","JavaScript"],
-        demoLink: "https://example.com/demo", 
+        demoLink: "https://aaryan4985.github.io/Dyte/", 
         githubLink: "https://github.com/aaryan4985/dyte", 
+      },
+      {
+        id: 3,
+        title: "Message Saver",
+        description: "A platform to save and organize messages, with features like message categorization, search, and export to PDF.",
+        image: "/projects/msg.png", 
+        type: "Web Application",
+        technologies: ["Python", "Tailwind CSS","Flask"],
+        demoLink: "https://flask-message-saver.vercel.app/", 
+        githubLink: "https://github.com/aaryan4985/Flask-Message-Saver", 
       },
 
   ];
