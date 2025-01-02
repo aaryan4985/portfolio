@@ -42,12 +42,22 @@ export default function Home() {
         id: 1,
         title: "Clubhouse",
         description: "A platform to manage hackathons and club events, with features like team matchmaking, leaderboards, and real-time chat.",
-        type: "Web Application",
+        type: "Full Stack Application",
         image: "/projects/clubhouse.png", 
-        technologies: ["React", "Tailwind CSS", "Node.js", "Express", "Firebase"],
-        demoLink: "https://example.com/demo", // Replace with your live demo URL
-        githubLink: "https://github.com/aaryan4985/clubhouse", // Replace with your GitHub repo URL
-      }
+        technologies: ["React", "Tailwind CSS", "TypeScript", "Firebase"],
+        demoLink: "https://clubhouse-sigma.vercel.app/", 
+        githubLink: "https://github.com/aaryan4985/clubhouse", 
+      },
+      {
+        id: 2,
+        title: "Dyte",
+        description: "A platform to provide diet plans and workout routines, with features like calorie tracking, meal planning, and progress tracking.",
+        image: "/projects/dyte.png", 
+        technologies: ["HTML5", "CSS","JavaScript"],
+        demoLink: "https://example.com/demo", 
+        githubLink: "https://github.com/aaryan4985/dyte", 
+      },
+
   ];
 
   return (

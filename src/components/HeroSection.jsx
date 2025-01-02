@@ -10,7 +10,7 @@ export const HeroSection = ({ skills }) => {
   
   return (
     <section id="hero" className="min-h-screen px-4 md:px-8 pt-24 pb-16 relative overflow-hidden">
-      {/* Animated Background Blobs */}
+      {/* Background Blobs - unchanged */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
           animate={{
@@ -85,7 +85,7 @@ export const HeroSection = ({ skills }) => {
             </motion.p>
           </div>
 
-          {/* Action Buttons */}
+          {/* Action Buttons with Shimmer */}
           <motion.div 
             className="flex flex-wrap gap-4"
             initial={{ opacity: 0 }}
@@ -94,16 +94,18 @@ export const HeroSection = ({ skills }) => {
           >
             <button
               onClick={() => navigate('/contact')}
-              className="group bg-gradient-to-r from-amber-500 to-amber-600 text-white px-8 py-4 rounded-full transition-all duration-300 text-lg font-medium hover:shadow-lg hover:shadow-amber-200 transform hover:-translate-y-1"
+              className="group relative bg-gradient-to-r from-amber-500 to-amber-600 text-white px-8 py-4 rounded-full transition-all duration-300 text-lg font-medium hover:shadow-lg hover:shadow-amber-200 transform hover:-translate-y-1 overflow-hidden"
             >
-              <span className="flex items-center gap-2">
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer" />
+              <span className="flex items-center gap-2 relative z-10">
                 <Mail className="w-5 h-5" />
                 Contact me
               </span>
             </button>
             
-            <button className="group bg-white text-gray-800 px-8 py-4 rounded-full border-2 border-amber-200 transition-all duration-300 text-lg font-medium hover:shadow-lg hover:shadow-amber-100 transform hover:-translate-y-1">
-              <span className="flex items-center gap-2">
+            <button className="group relative bg-white text-gray-800 px-8 py-4 rounded-full border-2 border-amber-200 transition-all duration-300 text-lg font-medium hover:shadow-lg hover:shadow-amber-100 transform hover:-translate-y-1 overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-amber-200/40 to-transparent animate-shimmer" />
+              <span className="flex items-center gap-2 relative z-10">
                 <Download className="w-5 h-5" />
                 Download CV
               </span>
@@ -137,7 +139,7 @@ export const HeroSection = ({ skills }) => {
           </motion.div>
         </motion.div>
 
-        {/* Profile Picture Section */}
+        {/* Right Image Section - Simplified */}
         <motion.div 
           className="relative flex justify-center items-center"
           initial={{ opacity: 0, scale: 0.8 }}
@@ -145,21 +147,25 @@ export const HeroSection = ({ skills }) => {
           transition={{ duration: 0.8, delay: 0.4 }}
         >
           {/* Card container */}
-          <div className="relative w-[300px] h-[400px] rounded-xl overflow-hidden shadow-[20px_20px_60px_#bebebe,-20px_-20px_60px_#ffffff] hover:scale-105 transition-all duration-500">
-            {/* Glass background */}
-            <div className="absolute top-[5px] left-[5px] w-[290px] h-[390px] bg-white/95 backdrop-blur-lg rounded-lg overflow-hidden outline outline-2 outline-white z-20" />
-            
-            {/* Animated blob */}
-            <div className="absolute z-10 top-1/2 left-1/2 w-[200px] h-[200px] rounded-full bg-amber-400 opacity-100 blur-xl animate-blob" />
-            
+          <div className="relative w-[300px] h-[400px] rounded-2xl overflow-hidden transform hover:scale-105 transition-all duration-500">
+            {/* Glass effect background */}
+            <div 
+              className="absolute inset-0 bg-white/40 backdrop-blur-xl z-10"
+              style={{
+                boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)'
+              }}
+            />
+
             {/* Image container */}
-            <div className="relative z-30 w-full h-full">
-              <div className="absolute inset-0 bg-gradient-to-b from-amber-400/20 to-amber-600/20" />
-              <img
-                src="/projects/pfp (1).jpg"
-                alt="Aaryan Pradhan"
-                className="w-full h-full object-cover"
-              />
+            <div className="relative z-20 w-full h-full p-3">
+              <div className="relative w-full h-full rounded-xl overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-b from-amber-400/10 via-amber-400/20 to-amber-600/30" />
+                <img
+                  src="/projects/pfp (1).jpg"
+                  alt="Aaryan Pradhan"
+                  className="w-full h-full object-cover rounded-xl"
+                />
+              </div>
             </div>
           </div>
         </motion.div>

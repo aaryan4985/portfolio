@@ -56,3 +56,26 @@
 .animate-blink {
   animation: blink 1s step-end infinite;
 }
+
+
+@keyframes blob1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(25%, 25%) scale(1.1); }
+  50% { transform: translate(0%, 50%) scale(1); }
+  75% { transform: translate(-25%, 25%) scale(0.9); }
+}
+
+@keyframes blob2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(-25%, -25%) scale(0.9); }
+  50% { transform: translate(0%, -50%) scale(1); }
+  75% { transform: translate(25%, -25%) scale(1.1); }
+}
+
+.animate-blob1 {
+  animation: blob1 7s infinite ease-in-out;
+}
+
+.animate-blob2 {
+  animation: blob2 7s infinite ease-in-out reverse;
+}

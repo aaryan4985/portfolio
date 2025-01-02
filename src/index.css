@@ -31,24 +31,33 @@ html::-webkit-scrollbar-thumb{
   background: linear-gradient(to right, #fbbf24, #f4ae35);
 }
 
-@keyframes blob {
-  0% {
-    transform: translate(-100%, -100%) translate3d(0, 0, 0);
-  }
-  25% {
-    transform: translate(-100%, -100%) translate3d(100%, 0, 0);
-  }
-  50% {
-    transform: translate(-100%, -100%) translate3d(100%, 100%, 0);
-  }
-  75% {
-    transform: translate(-100%, -100%) translate3d(0, 100%, 0);
-  }
-  100% {
-    transform: translate(-100%, -100%) translate3d(0, 0, 0);
-  }
+@keyframes blob1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(25%, 25%) scale(1.1); }
+  50% { transform: translate(0%, 50%) scale(1); }
+  75% { transform: translate(-25%, 25%) scale(0.9); }
 }
 
-.animate-blob {
-  animation: blob 5s infinite ease;
+@keyframes blob2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(-25%, -25%) scale(0.9); }
+  50% { transform: translate(0%, -50%) scale(1); }
+  75% { transform: translate(25%, -25%) scale(1.1); }
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.animate-blob1 {
+  animation: blob1 7s infinite ease-in-out;
+}
+
+.animate-blob2 {
+  animation: blob2 7s infinite ease-in-out reverse;
+}
+
+.animate-shimmer {
+  animation: shimmer 2s infinite linear;
 }
