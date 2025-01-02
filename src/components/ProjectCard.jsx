@@ -1,37 +1,79 @@
-import { ArrowRight } from 'lucide-react';
-import { useState } from 'react';
+import { motion } from 'framer-motion';
+import { Github, ExternalLink, Image as ImageIcon } from 'lucide-react';
 
-export default function ProjectCard({ title, description, image, type }) {
-  const [imageLoaded, setImageLoaded] = useState(false);
-
+export  const ProjectCard = ({ project, index }) => {
   return (
-    <div className="group relative w-full aspect-video rounded-2xl overflow-hidden perspective-1000 transition-all duration-500 ease-out hover:scale-[1.02]">
-      {/* Image container */}
-      <div className="absolute inset-0 bg-gray-50">
-        <img 
-          src={image} 
-          alt={title} 
-          onLoad={() => setImageLoaded(true)}
-          className={`w-full h-full object-cover transition-all duration-500
-            ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
-        />
-      </div>
-
-      {/* Overlay that slides up */}
-      <div className="absolute inset-0 bg-black/70 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out">
-        <div className="h-full p-6 flex flex-col text-white">
-          <div className="flex-1">
-            <p className="text-amber-300 text-sm font-medium mb-2">{type}</p>
-            <h3 className="text-xl font-bold mb-2">{title}</h3>
-            <p className="text-gray-300 text-sm line-clamp-3">{description}</p>
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ delay: index * 0.1 }}
+      className="group relative w-full h-[400px] bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 perspective-1000"
+    >
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+      
+      <motion.div
+        initial={false}
+        className="relative w-full h-full"
+      >
+        <div className="absolute inset-0">
+          <div className="relative h-48 overflow-hidden">
+            <img
+              src={project.image}
+              alt={project.title}
+              className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-white to-transparent" />
           </div>
           
-          <div className="mt-auto flex items-center text-sm text-white group/link">
-            <span className="font-medium">View Project</span>
-            <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover/link:translate-x-1" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+            <ImageIcon className="w-12 h-12 text-amber-500 opacity-100 group-hover:opacity-0 transition-opacity duration-300" />
           </div>
         </div>
-      </div>
-    </div>
+
+        <div className="absolute inset-0 p-6 flex flex-col justify-between transform group-hover:translate-y-0 translate-y-[60%] transition-transform duration-500">
+          <div>
+            <span className="inline-block px-3 py-1 bg-amber-100 text-amber-800 rounded-full text-sm font-medium mb-3">
+              {project.type}
+            </span>
+            <h3 className="text-2xl font-bold mb-2 text-gray-900 group-hover:text-white transition-colors duration-300">
+              {project.title}
+            </h3>
+            <p className="text-gray-600 group-hover:text-gray-200 transition-colors duration-300">
+              {project.description}
+            </p>
+          </div>
+
+          <div className="space-y-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
+            <div className="flex flex-wrap gap-2">
+              {project.technologies.map((tech) => (
+                <span key={tech} className="px-2 py-1 bg-white/20 text-white rounded-md text-sm backdrop-blur-sm">
+                  {tech}
+                </span>
+              ))}
+            </div>
+
+            <div className="flex gap-4">
+              <a
+                href={project.demoLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1 text-white hover:text-amber-300 transition-colors"
+              >
+                <ExternalLink className="w-4 h-4" /> Live Demo
+              </a>
+              <a
+                href={project.githubLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1 text-white hover:text-amber-300 transition-colors"
+              >
+                <Github className="w-4 h-4" /> Code
+              </a>
+            </div>
+          </div>
+        </div>
+      </motion.div>
+    </motion.div>
   );
-}
+};
