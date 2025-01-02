@@ -38,7 +38,16 @@ export default function Home() {
   ];
 
   const projects = [
-    // Your project data here
+    {
+        id: 1,
+        title: "Clubhouse",
+        description: "A platform to manage hackathons and club events, with features like team matchmaking, leaderboards, and real-time chat.",
+        type: "Web Application",
+        image: "/projects/clubhouse.png", 
+        technologies: ["React", "Tailwind CSS", "Node.js", "Express", "Firebase"],
+        demoLink: "https://example.com/demo", // Replace with your live demo URL
+        githubLink: "https://github.com/aaryan4985/clubhouse", // Replace with your GitHub repo URL
+      }
   ];
 
   return (
