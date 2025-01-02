@@ -1,3 +1,4 @@
+import React from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Download, Github, Linkedin, Instagram } from 'lucide-react';
 import { TypewriterText } from './TypewriterText';
@@ -9,6 +10,7 @@ export const HeroSection = ({ skills }) => {
   
   return (
     <section id="hero" className="min-h-screen px-4 md:px-8 pt-24 pb-16 relative overflow-hidden">
+      {/* Animated Background Blobs */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
           animate={{
@@ -37,6 +39,7 @@ export const HeroSection = ({ skills }) => {
       </div>
 
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center relative">
+        {/* Left Content Section */}
         <motion.div 
           className="space-y-8"
           initial={{ opacity: 0, x: -50 }}
@@ -82,7 +85,7 @@ export const HeroSection = ({ skills }) => {
             </motion.p>
           </div>
 
-          {/* Buttons */}
+          {/* Action Buttons */}
           <motion.div 
             className="flex flex-wrap gap-4"
             initial={{ opacity: 0 }}
@@ -134,26 +137,35 @@ export const HeroSection = ({ skills }) => {
           </motion.div>
         </motion.div>
 
-        {/* Profile Image */}
+        {/* Profile Picture Section */}
         <motion.div 
           className="relative flex justify-center items-center"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-amber-200 to-amber-300 rounded-full blur-3xl opacity-20 animate-pulse" />
-          <div className="relative w-100 h-80 rounded-2xl overflow-hidden shadow-2xl transform hover:scale-105 transition-transform duration-300">
-            <div className="absolute inset-0 bg-gradient-to-b from-amber-400/20 to-amber-600/20" />
-            <img
-              src="/projects/pfp (1).jpg"
-              alt="Aaryan Pradhan"
-              className="w-full h-full object-cover"
-            />
+          {/* Card container */}
+          <div className="relative w-[300px] h-[400px] rounded-xl overflow-hidden shadow-[20px_20px_60px_#bebebe,-20px_-20px_60px_#ffffff] hover:scale-105 transition-all duration-500">
+            {/* Glass background */}
+            <div className="absolute top-[5px] left-[5px] w-[290px] h-[390px] bg-white/95 backdrop-blur-lg rounded-lg overflow-hidden outline outline-2 outline-white z-20" />
+            
+            {/* Animated blob */}
+            <div className="absolute z-10 top-1/2 left-1/2 w-[200px] h-[200px] rounded-full bg-amber-400 opacity-100 blur-xl animate-blob" />
+            
+            {/* Image container */}
+            <div className="relative z-30 w-full h-full">
+              <div className="absolute inset-0 bg-gradient-to-b from-amber-400/20 to-amber-600/20" />
+              <img
+                src="/projects/pfp (1).jpg"
+                alt="Aaryan Pradhan"
+                className="w-full h-full object-cover"
+              />
+            </div>
           </div>
         </motion.div>
       </div>
 
-      {/* Skills */}
+      {/* Skills Section */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -172,3 +184,5 @@ export const HeroSection = ({ skills }) => {
     </section>
   );
 };
+
+export default HeroSection;
