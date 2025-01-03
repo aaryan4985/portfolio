@@ -1,5 +1,6 @@
-// src/pages/About.jsx
+import React from 'react';
 import { Download } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 export default function About() {
   const skills = [
@@ -20,79 +21,136 @@ export default function About() {
       role: "Student",
       period: "2013 - 2023",
       description: "student."
-    },
-    
+    }
   ];
 
   return (
-    <div className="min-h-screen py-16 px-4 md:px-8">
-      <div className="max-w-7xl mx-auto">
+    <div className="min-h-screen bg-gradient-to-b from-amber-50 to-amber-100">
+      <div className="absolute inset-0 bg-grid-amber-900/[0.02] bg-[size:20px_20px] pointer-events-none" />
+      
+      <div className="relative max-w-7xl mx-auto px-4 md:px-8 pt-32 pb-16">
         {/* Hero Section */}
-        <div className="max-w-3xl">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="max-w-3xl mx-auto text-center"
+        >
+          <h1 className="text-5xl md:text-6xl font-bold mb-8 bg-gradient-to-r from-amber-600 to-amber-900 bg-clip-text text-transparent">
             About Me
           </h1>
-          <p className="text-gray-600 text-lg mb-8">
-          I'm a second-year B.Tech student at SRM-IST, blending creativity and tech as a web developer, DSA enthusiast, and AI/ML explorer. I thrive in hackathons, crafting innovative solutions. With a passion for cybersecurity and impactful projects, I aim to merge tech and creativity to build a future where ideas turn into transformative realities. 🚀
+          <p className="text-amber-800 text-xl leading-relaxed mb-10">
+            I'm a second-year B.Tech student at SRM-IST, blending creativity and tech as a web developer, 
+            DSA enthusiast, and AI/ML explorer. I thrive in hackathons, crafting innovative solutions. 
+            With a passion for cybersecurity and impactful projects, I aim to merge tech and creativity 
+            to build a future where ideas turn into transformative realities. 🚀
           </p>
-          <button className="inline-flex items-center px-6 py-3 bg-black text-white rounded-full hover:bg-gray-800 transition-colors">
-            <Download className="mr-2 h-5 w-5" />
+          <motion.button 
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-amber-500 to-amber-600 text-white rounded-full hover:from-amber-600 hover:to-amber-700 transition-all shadow-lg hover:shadow-xl text-lg font-semibold"
+          >
+            <Download className="mr-2 h-6 w-6" />
             Download Resume
-          </button>
-        </div>
+          </motion.button>
+        </motion.div>
 
         {/* Skills Section */}
-        <div className="mt-20">
-          <h2 className="text-2xl font-bold mb-8">Skills & Tools</h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            {skills.map((skillGroup) => (
-              <div key={skillGroup.category} className="bg-gray-50 p-6 rounded-2xl">
-                <h3 className="font-semibold mb-4">{skillGroup.category}</h3>
-                <ul className="space-y-2">
-                  {skillGroup.items.map((item) => (
-                    <li key={item} className="text-gray-600">{item}</li>
-                  ))}
-                </ul>
-              </div>
+        <motion.div 
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
+          className="mt-32"
+        >
+          <h2 className="text-3xl font-bold mb-12 text-amber-900 text-center">Skills & Tools</h2>
+          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            {skills.map((skillGroup, idx) => (
+              <motion.div 
+                key={skillGroup.category}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: idx * 0.2 }}
+                className="w-full h-64 bg-gradient-to-br from-amber-400 to-amber-500 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-400 hover:scale-110 cursor-pointer group"
+              >
+                {/* First Content */}
+                <div className="h-full w-full flex justify-center items-center opacity-100 transition-all duration-400 group-hover:h-0 group-hover:opacity-0 rounded-xl">
+                  <span className="text-3xl font-extrabold text-white">{skillGroup.category}</span>
+                </div>
+                
+                {/* Second Content */}
+                <div className="h-0 w-full opacity-0 flex flex-col justify-center items-center rounded-xl transition-all duration-400 group-hover:h-full group-hover:opacity-100 transform rotate-90 scale-y-[-1] group-hover:rotate-0 group-hover:scale-y-100">
+                  <ul className="text-center space-y-2">
+                    {skillGroup.items.map((item) => (
+                      <li key={item} className="text-white text-lg font-medium">{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              </motion.div>
             ))}
           </div>
-        </div>
+        </motion.div>
 
         {/* Experience Section */}
-        <div className="mt-20">
-          <h2 className="text-2xl font-bold mb-8">Experience</h2>
-          <div className="space-y-12">
-            {experiences.map((exp) => (
-              <div key={exp.company} className="border-l-2 border-gray-200 pl-8 relative">
-                <div className="absolute w-4 h-4 bg-white border-2 border-black rounded-full -left-[9px] top-0" />
-                <div className="space-y-2">
+        <motion.div 
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
+          className="mt-32"
+        >
+          <h2 className="text-3xl font-bold mb-12 text-amber-900 text-center">Experience</h2>
+          <div className="space-y-12 max-w-4xl mx-auto">
+            {experiences.map((exp, idx) => (
+              <motion.div 
+                key={exp.company}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: idx * 0.2 }}
+                className="border-l-4 border-amber-400 pl-8 relative hover:border-amber-600 transition-all duration-300"
+              >
+                <motion.div 
+                  whileHover={{ scale: 1.2 }}
+                  className="absolute w-5 h-5 bg-white border-4 border-amber-500 rounded-full -left-[11px] top-0" 
+                />
+                <div className="space-y-3">
                   <div className="flex flex-wrap items-center gap-x-4">
-                    <h3 className="text-xl font-semibold">{exp.company}</h3>
-                    <span className="text-gray-500">|</span>
-                    <span className="text-gray-500">{exp.period}</span>
+                    <h3 className="text-2xl font-bold text-amber-900">{exp.company}</h3>
+                    <span className="text-amber-500 text-xl">|</span>
+                    <span className="text-amber-600 font-medium">{exp.period}</span>
                   </div>
-                  <p className="text-lg font-medium">{exp.role}</p>
-                  <p className="text-gray-600">{exp.description}</p>
+                  <p className="text-xl font-medium text-amber-800">{exp.role}</p>
+                  <p className="text-amber-700 text-lg">{exp.description}</p>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
-        </div>
+        </motion.div>
 
         {/* Contact Section */}
-        <div className="mt-20">
-          <div className="bg-gray-50 p-8 md:p-12 rounded-2xl text-center">
-            <h2 className="text-2xl md:text-3xl font-bold mb-4">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="mt-32"
+        >
+          <motion.div 
+            whileHover={{ scale: 1.02 }}
+            className="bg-gradient-to-br from-amber-200 to-amber-300 p-12 md:p-16 rounded-3xl text-center shadow-xl max-w-4xl mx-auto"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-amber-900">
               Let's work together
             </h2>
-            <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
+            <p className="text-amber-800 text-xl mb-8 max-w-2xl mx-auto">
               I'm always open to discussing product design work or partnership opportunities.
             </p>
-            <button className="px-8 py-3 bg-black text-white rounded-full hover:bg-gray-800 transition-colors">
+            <motion.button 
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-10 py-4 bg-gradient-to-r from-amber-500 to-amber-600 text-white rounded-full hover:from-amber-600 hover:to-amber-700 transition-all shadow-lg hover:shadow-xl text-lg font-semibold"
+            >
               Get in touch
-            </button>
-          </div>
-        </div>
+            </motion.button>
+          </motion.div>
+        </motion.div>
       </div>
     </div>
   );
