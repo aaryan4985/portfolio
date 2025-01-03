@@ -3,30 +3,25 @@ import { Download } from 'lucide-react';
 
 export default function About() {
   const skills = [
-    { category: "Design", items: ["UI/UX Design", "User Research", "Prototyping", "Design Systems"] },
-    { category: "Tools", items: ["Figma", "Adobe XD", "Sketch", "Principle"] },
-    { category: "Development", items: ["HTML/CSS", "JavaScript", "React", "Tailwind CSS"] }
+    { category: "Design", items: ["Web Design", "User Experience (UX)", "Prototyping"] },
+    { category: "Tools", items: ["Visual Studio Code", "Git & GitHub", "Figma", "Postman"] },
+    { category: "Development", items: ["HTML/CSS", "JavaScript", "React", "Tailwind CSS", "Node.js"] }
   ];
 
   const experiences = [
     {
-      company: "Design Company Inc.",
-      role: "Senior Product Designer",
-      period: "2020 - Present",
-      description: "Leading product design initiatives and managing a team of designers. Created design systems and improved user experience across multiple products."
+      company: "SRM-IST, Modinagar",
+      role: "CSE Computer Science Engineering Undergraduate",
+      period: "2023 - Present",
+      description: "Computer Science Engineering."
     },
     {
-      company: "Tech Startup XYZ",
-      role: "Product Designer",
-      period: "2017 - 2020",
-      description: "Designed user interfaces for mobile and web applications. Conducted user research and usability testing."
+      company: "Amity International School, Sector-46, Gurgaon",    
+      role: "Student",
+      period: "2013 - 2023",
+      description: "student."
     },
-    {
-      company: "Creative Agency",
-      role: "UI/UX Designer",
-      period: "2015 - 2017",
-      description: "Created digital experiences for various clients. Worked on branding, website design, and mobile applications."
-    }
+    
   ];
 
   return (
@@ -38,9 +33,7 @@ export default function About() {
             About Me
           </h1>
           <p className="text-gray-600 text-lg mb-8">
-            I'm a product designer with 7 years of experience in creating digital products
-            and experiences. I combine my passion for design with a deep understanding
-            of user needs to create meaningful solutions.
+          I'm a second-year B.Tech student at SRM-IST, blending creativity and tech as a web developer, DSA enthusiast, and AI/ML explorer. I thrive in hackathons, crafting innovative solutions. With a passion for cybersecurity and impactful projects, I aim to merge tech and creativity to build a future where ideas turn into transformative realities. 🚀
           </p>
           <button className="inline-flex items-center px-6 py-3 bg-black text-white rounded-full hover:bg-gray-800 transition-colors">
             <Download className="mr-2 h-5 w-5" />
