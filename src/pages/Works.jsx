@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import { Github, ExternalLink } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 export default function Works() {
   const [filter, setFilter] = useState('all');
+  const navigate = useNavigate();
 
-  // You'll need to replace these projects with your actual GitHub projects
+
   const projects = [
     {
       title: "Clubhouse",
@@ -129,7 +131,9 @@ export default function Works() {
           <p className="text-amber-700 mb-6">
             I'm always open to discussing new projects or opportunities.
           </p>
-          <button className="px-8 py-3 bg-amber-600 text-white rounded-full hover:bg-amber-700 transition-colors">
+          <button
+          onClick={() => navigate('/contact')}
+           className="px-8 py-3 bg-amber-600 text-white rounded-full hover:bg-amber-700 transition-colors">
             Get in Touch
           </button>
         </div>

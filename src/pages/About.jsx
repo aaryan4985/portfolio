@@ -1,6 +1,7 @@
 import React from 'react';
 import { Download } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 
 export default function About() {
   const skills = [
@@ -23,6 +24,8 @@ export default function About() {
       description: "student."
     }
   ];
+
+  const navigate = useNavigate();
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-amber-50 to-amber-100">
@@ -143,6 +146,7 @@ export default function About() {
               I'm always open to discussing product design work or partnership opportunities.
             </p>
             <motion.button 
+            onClick={() => navigate('/contact')}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="px-10 py-4 bg-gradient-to-r from-amber-500 to-amber-600 text-white rounded-full hover:from-amber-600 hover:to-amber-700 transition-all shadow-lg hover:shadow-xl text-lg font-semibold"
