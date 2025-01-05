@@ -33,7 +33,7 @@ export default function Home() {
   }, []);
 
   const skills = [
-    "React", "Node.js", "TypeScript", "Python", "C", "C++", "Java", "JavaScript", 
+    "React", "Node.js", "TypeScript", "Python", "C", "C++", "JavaScript", 
     "HTML", "CSS", "SQL", "git", "MongoDB", "Next.js", "TailwindCSS"
   ];
 
