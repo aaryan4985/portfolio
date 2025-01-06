@@ -42,7 +42,7 @@ export const ContactSection = () => {
                 icon: Mail,
                 title: "Email",
                 content: "pradhanaaryan@gmail.com",
-                link: "mailto:pradhanaaryan@gmail.com"
+                link: "/contact"
               },
               {
                 icon: Linkedin,
