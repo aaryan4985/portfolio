@@ -7,7 +7,14 @@ export default function About() {
   const skills = [
     { category: "Design", items: ["Web Design", "User Experience (UX)", "Prototyping"] },
     { category: "Tools", items: ["Visual Studio Code", "Git & GitHub", "Figma", "Postman"] },
-    { category: "Development", items: ["HTML/CSS", "JavaScript", "React", "Tailwind CSS", "Node.js"] }
+    { 
+      category: "Development", 
+      items: [
+        ["Frontend", ["React", "Next.js", "TypeScript", "JavaScript", "HTML/CSS", "TailwindCSS"]],
+        ["Backend", ["Node.js", "Python", "MongoDB", "SQL"]],
+        ["Languages", ["C", "C++", "JavaScript", "Python"]]
+      ] 
+    }
   ];
 
   const experiences = [
@@ -32,7 +39,6 @@ export default function About() {
       <div className="absolute inset-0 bg-grid-amber-900/[0.02] bg-[size:20px_20px] pointer-events-none" />
       
       <div className="relative max-w-7xl mx-auto px-4 md:px-8 pt-32 pb-16">
-        {/* Hero Section */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -59,12 +65,11 @@ export default function About() {
               download="Aaryan_CV.pdf" 
               className="relative z-10"
             >
-            Download Resume
+              Download Resume
             </a>
           </motion.button>
         </motion.div>
 
-        {/* Skills Section */}
         <motion.div 
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -81,25 +86,39 @@ export default function About() {
                 transition={{ duration: 0.5, delay: idx * 0.2 }}
                 className="w-full h-64 bg-gradient-to-br from-amber-400 to-amber-500 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-400 hover:scale-110 cursor-pointer group"
               >
-                {/* First Content */}
                 <div className="h-full w-full flex justify-center items-center opacity-100 transition-all duration-400 group-hover:h-0 group-hover:opacity-0 rounded-xl">
                   <span className="text-3xl font-extrabold text-white">{skillGroup.category}</span>
                 </div>
                 
-                {/* Second Content */}
                 <div className="h-0 w-full opacity-0 flex flex-col justify-center items-center rounded-xl transition-all duration-400 group-hover:h-full group-hover:opacity-100 transform rotate-90 scale-y-[-1] group-hover:rotate-0 group-hover:scale-y-100">
-                  <ul className="text-center space-y-2">
-                    {skillGroup.items.map((item) => (
-                      <li key={item} className="text-white text-lg font-medium">{item}</li>
-                    ))}
-                  </ul>
+                  {skillGroup.category === "Development" ? (
+                    <div className="grid grid-cols-1 gap-2 p-4">
+                      {skillGroup.items.map(([category, items]) => (
+                        <div key={category} className="text-center">
+                          <h4 className="text-white font-semibold mb-1">{category}</h4>
+                          <div className="flex flex-wrap justify-center gap-2">
+                            {items.map(item => (
+                              <span key={item} className="text-white text-sm bg-amber-600/30 px-2 py-1 rounded-full">
+                                {item}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <ul className="text-center space-y-2">
+                      {skillGroup.items.map((item) => (
+                        <li key={item} className="text-white text-lg font-medium">{item}</li>
+                      ))}
+                    </ul>
+                  )}
                 </div>
               </motion.div>
             ))}
           </div>
         </motion.div>
 
-        {/* Experience Section */}
         <motion.div 
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -134,7 +153,6 @@ export default function About() {
           </div>
         </motion.div>
 
-        {/* Contact Section */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
