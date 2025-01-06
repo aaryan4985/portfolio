@@ -21,7 +21,7 @@ export default function About() {
       company: "Amity International School, Sector-46, Gurgaon",    
       role: "Student",
       period: "2013 - 2023",
-      description: "student."
+      description: "Student."
     }
   ];
 
@@ -54,7 +54,13 @@ export default function About() {
             className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-amber-500 to-amber-600 text-white rounded-full hover:from-amber-600 hover:to-amber-700 transition-all shadow-lg hover:shadow-xl text-lg font-semibold"
           >
             <Download className="mr-2 h-6 w-6" />
+            <a 
+              href="/CV.pdf" 
+              download="Aaryan_CV.pdf" 
+              className="relative z-10"
+            >
             Download Resume
+            </a>
           </motion.button>
         </motion.div>
 
@@ -146,7 +152,7 @@ export default function About() {
               I'm always open to discussing product design work or partnership opportunities.
             </p>
             <motion.button 
-            onClick={() => navigate('/contact')}
+              onClick={() => navigate('/contact')}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="px-10 py-4 bg-gradient-to-r from-amber-500 to-amber-600 text-white rounded-full hover:from-amber-600 hover:to-amber-700 transition-all shadow-lg hover:shadow-xl text-lg font-semibold"

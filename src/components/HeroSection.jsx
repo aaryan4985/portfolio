@@ -104,12 +104,19 @@ export const HeroSection = ({ skills }) => {
             </button>
             
             <button className="group relative bg-white text-gray-800 px-8 py-4 rounded-full border-2 border-amber-200 transition-all duration-300 text-lg font-medium hover:shadow-lg hover:shadow-amber-100 transform hover:-translate-y-1 overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-amber-200/40 to-transparent animate-shimmer" />
-              <span className="flex items-center gap-2 relative z-10">
-                <Download className="w-5 h-5" />
-                Download CV
-              </span>
-            </button>
+  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-amber-200/40 to-transparent animate-shimmer" />
+  <span className="flex items-center gap-2 relative z-10">
+    <Download className="w-5 h-5" />
+    <a 
+      href="/CV.pdf" 
+      download="Aaryan_CV.pdf" 
+      className="relative z-10"
+    >
+      Download Resume
+    </a>
+  </span>
+</button>
+
           </motion.div>
 
           {/* Social Links */}
