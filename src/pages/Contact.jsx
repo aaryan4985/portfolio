@@ -1,6 +1,6 @@
-// src/pages/Contact.jsx
 import { useState } from 'react';
 import { Send, Mail, Phone, MapPin, Loader2 } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 import emailjs from '@emailjs/browser';
 
 export default function Contact() {
@@ -30,17 +30,16 @@ export default function Contact() {
     setStatus({ loading: true, success: false, error: false, message: '' });
 
     try {
-      // Replace with your EmailJS service ID, template ID, and public key
       await emailjs.send(
-        'YOUR_SERVICE_ID',
-        'YOUR_TEMPLATE_ID',
+        process.env.REACT_APP_EMAILJS_SERVICE_ID,
+        process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
         {
           from_name: formData.name,
           reply_to: formData.email,
           subject: formData.subject,
           message: formData.message
         },
-        'YOUR_PUBLIC_KEY'
+        process.env.REACT_APP_EMAILJS_PUBLIC_KEY
       );
 
       setStatus({
@@ -50,14 +49,12 @@ export default function Contact() {
         message: 'Message sent successfully!'
       });
       
-      // Clear form
       setFormData({
         name: '',
         email: '',
         subject: '',
         message: ''
       });
-
     } catch (error) {
       setStatus({
         loading: false,
@@ -72,8 +69,8 @@ export default function Contact() {
     {
       icon: <Mail className="h-6 w-6" />,
       title: "Email",
-      content: "your.email@example.com",
-      link: "mailto:your.email@example.com"
+      content: "pradhanaaryan@gmail.com",
+      link: "mailto:pradhanaaryan@gmail.com" // Fixed email link
     },
     {
       icon: <Phone className="h-6 w-6" />,
@@ -84,54 +81,113 @@ export default function Contact() {
     {
       icon: <MapPin className="h-6 w-6" />,
       title: "Location",
-      content: "New York, NY",
-      link: "https://maps.google.com"
+      content: "Gurugram, Haryana, India",
+      link: "https://g.co/kgs/2927mcP"
     }
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        staggerChildren: 0.2
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5, ease: "easeOut" }
+    }
+  };
+
+  const inputVariants = {
+    focus: { scale: 1.02, transition: { duration: 0.2 } },
+    blur: { scale: 1, transition: { duration: 0.2 } }
+  };
+
   return (
-    <div className="min-h-screen py-16 px-4 md:px-8">
-      <div className="max-w-7xl mx-auto">
+    <div className="min-h-screen py-24 px-4 md:px-8 bg-gradient-to-b from-amber-50 to-amber-100/50">
+      <motion.div 
+        className="max-w-7xl mx-auto"
+        initial="hidden"
+        animate="visible"
+        variants={containerVariants}
+      >
         {/* Header */}
-        <div className="max-w-3xl mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">
+        <motion.div 
+          className="max-w-3xl mb-20"
+          variants={itemVariants}
+        >
+          <motion.h1 
+            className="text-4xl md:text-6xl font-bold mb-8 text-amber-900"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
             Get in Touch
-          </h1>
-          <p className="text-gray-600 text-lg">
+          </motion.h1>
+          <motion.p 
+            className="text-amber-700 text-lg md:text-xl"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >
             I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
         <div className="grid md:grid-cols-3 gap-12">
           {/* Contact Info */}
           <div className="space-y-8">
             {contactInfo.map((info, index) => (
-              <a
+              <motion.a
                 key={index}
+                variants={itemVariants}
+                whileHover={{ scale: 1.03, boxShadow: "0 10px 20px rgba(0,0,0,0.1)" }}
+                whileTap={{ scale: 0.98 }}
                 href={info.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block p-6 bg-gray-50 rounded-2xl hover:bg-gray-100 transition-colors"
+                className="block p-6 bg-amber-100/80 backdrop-blur-sm rounded-2xl hover:bg-amber-200 transition-all duration-300 border border-amber-200/50"
               >
                 <div className="flex items-center space-x-4">
-                  <div className="text-gray-600">
-                    {info.icon}
+                  <div className="text-amber-600">
+                    <motion.div
+                      whileHover={{ rotate: 10 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      {info.icon}
+                    </motion.div>
                   </div>
                   <div>
-                    <h3 className="font-medium">{info.title}</h3>
-                    <p className="text-gray-600 mt-1">{info.content}</p>
+                    <h3 className="font-medium text-amber-900">{info.title}</h3>
+                    <p className="text-amber-700 mt-1">{info.content}</p>
                   </div>
                 </div>
-              </a>
+              </motion.a>
             ))}
           </div>
 
           {/* Contact Form */}
-          <div className="md:col-span-2">
+          <motion.div 
+            className="md:col-span-2"
+            variants={itemVariants}
+          >
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                <motion.div 
+                  variants={inputVariants}
+                  whileHover="focus"
+                  whileTap="blur"
+                >
+                  <label htmlFor="name" className="block text-sm font-medium text-amber-700 mb-2">
                     Name
                   </label>
                   <input
@@ -141,11 +197,15 @@ export default function Contact() {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-black focus:border-transparent outline-none transition-colors"
+                    className="w-full px-4 py-3 rounded-lg border border-amber-200 focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none transition-all duration-300 bg-white/80 backdrop-blur-sm"
                   />
-                </div>
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                </motion.div>
+                <motion.div 
+                  variants={inputVariants}
+                  whileHover="focus"
+                  whileTap="blur"
+                >
+                  <label htmlFor="email" className="block text-sm font-medium text-amber-700 mb-2">
                     Email
                   </label>
                   <input
@@ -155,13 +215,17 @@ export default function Contact() {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-black focus:border-transparent outline-none transition-colors"
+                    className="w-full px-4 py-3 rounded-lg border border-amber-200 focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none transition-all duration-300 bg-white/80 backdrop-blur-sm"
                   />
-                </div>
+                </motion.div>
               </div>
 
-              <div>
-                <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
+              <motion.div 
+                variants={inputVariants}
+                whileHover="focus"
+                whileTap="blur"
+              >
+                <label htmlFor="subject" className="block text-sm font-medium text-amber-700 mb-2">
                   Subject
                 </label>
                 <input
@@ -171,12 +235,16 @@ export default function Contact() {
                   value={formData.subject}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-black focus:border-transparent outline-none transition-colors"
+                  className="w-full px-4 py-3 rounded-lg border border-amber-200 focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none transition-all duration-300 bg-white/80 backdrop-blur-sm"
                 />
-              </div>
+              </motion.div>
 
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+              <motion.div 
+                variants={inputVariants}
+                whileHover="focus"
+                whileTap="blur"
+              >
+                <label htmlFor="message" className="block text-sm font-medium text-amber-700 mb-2">
                   Message
                 </label>
                 <textarea
@@ -186,24 +254,33 @@ export default function Contact() {
                   onChange={handleChange}
                   required
                   rows={6}
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-black focus:border-transparent outline-none transition-colors"
+                  className="w-full px-4 py-3 rounded-lg border border-amber-200 focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none transition-all duration-300 bg-white/80 backdrop-blur-sm"
                 />
-              </div>
+              </motion.div>
 
               {/* Status Messages */}
-              {status.message && (
-                <div className={`p-4 rounded-lg ${
-                  status.success ? 'bg-green-100 text-green-700' : 
-                  status.error ? 'bg-red-100 text-red-700' : ''
-                }`}>
-                  {status.message}
-                </div>
-              )}
+              <AnimatePresence>
+                {status.message && (
+                  <motion.div 
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    className={`p-4 rounded-lg ${
+                      status.success ? 'bg-green-100 text-green-700' : 
+                      status.error ? 'bg-red-100 text-red-700' : ''
+                    }`}
+                  >
+                    {status.message}
+                  </motion.div>
+                )}
+              </AnimatePresence>
 
-              <button
+              <motion.button
                 type="submit"
                 disabled={status.loading}
-                className="inline-flex items-center px-6 py-3 bg-black text-white rounded-full hover:bg-gray-800 transition-colors disabled:bg-gray-400"
+                whileHover={{ scale: 1.02, boxShadow: "0 10px 20px rgba(0,0,0,0.1)" }}
+                whileTap={{ scale: 0.98 }}
+                className="inline-flex items-center px-6 py-3 bg-amber-500 text-white rounded-full hover:bg-amber-600 transition-all duration-300 disabled:bg-amber-300 shadow-md"
               >
                 {status.loading ? (
                   <>
@@ -216,11 +293,11 @@ export default function Contact() {
                     Send Message
                   </>
                 )}
-              </button>
+              </motion.button>
             </form>
-          </div>
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }
