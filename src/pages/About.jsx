@@ -91,28 +91,28 @@ export default function About() {
                 </div>
                 
                 <div className="h-0 w-full opacity-0 flex flex-col justify-center items-center rounded-xl transition-all duration-400 group-hover:h-full group-hover:opacity-100 transform rotate-90 scale-y-[-1] group-hover:rotate-0 group-hover:scale-y-100">
-                  {skillGroup.category === "Development" ? (
-                    <div className="grid grid-cols-1 gap-2 p-4">
-                      {skillGroup.items.map(([category, items]) => (
-                        <div key={category} className="text-center">
-                          <h4 className="text-white font-semibold mb-1">{category}</h4>
-                          <div className="flex flex-wrap justify-center gap-2">
-                            {items.map(item => (
-                              <span key={item} className="text-white text-sm bg-amber-600/30 px-2 py-1 rounded-full">
-                                {item}
-                              </span>
-                            ))}
-                          </div>
+                {skillGroup.category === "Development" ? (
+  <div className="grid grid-cols-1 gap-2 p-4">
+                    {skillGroup.items.map(([category, items]) => (
+                      <div key={category} className="text-center">
+                        <h4 className="text-white  bg-amber-600/30 px-2 py-1 rounded-full font-semibold mb-1">{category}</h4>
+                        <div className="flex flex-wrap justify-center gap-2">
+                          {items.map(item => (
+                            <span key={item} className="text-white font-bold text-sm">
+                              {item}
+                            </span>
+                          ))}
                         </div>
-                      ))}
-                    </div>
-                  ) : (
-                    <ul className="text-center space-y-2">
-                      {skillGroup.items.map((item) => (
-                        <li key={item} className="text-white text-lg font-medium">{item}</li>
-                      ))}
-                    </ul>
-                  )}
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <ul className="text-center space-y-2">
+                    {skillGroup.items.map((item) => (
+                      <li key={item} className="text-white text-lg font-medium">{item}</li>
+                    ))}
+                  </ul>
+                )}
                 </div>
               </motion.div>
             ))}
@@ -125,7 +125,7 @@ export default function About() {
           transition={{ duration: 0.8 }}
           className="mt-32"
         >
-          <h2 className="text-3xl font-bold mb-12 text-amber-900 text-center">Experience</h2>
+          <h2 className="text-3xl font-bold mb-12 text-amber-900 text-center">Education</h2>
           <div className="space-y-12 max-w-4xl mx-auto">
             {experiences.map((exp, idx) => (
               <motion.div 
