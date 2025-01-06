@@ -1,9 +1,19 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Send, Mail, Phone, MapPin, Loader2 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import emailjs from '@emailjs/browser';
 
 export default function Contact() {
+  useEffect(() => {
+    emailjs.init(process.env.REACT_APP_EMAILJS_PUBLIC_KEY);
+  }, []);
+
+  useEffect(() => {
+    console.log('Public Key:', process.env.REACT_APP_EMAILJS_PUBLIC_KEY);
+    emailjs.init(process.env.REACT_APP_EMAILJS_PUBLIC_KEY);
+  }, []);
+  
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -30,17 +40,24 @@ export default function Contact() {
     setStatus({ loading: true, success: false, error: false, message: '' });
 
     try {
-      await emailjs.send(
+      const templateParams = {
+        to_name: 'Aaryan', // You can make this dynamic if needed
+        from_name: formData.name,
+        message: formData.message,
+        from_email: formData.email,
+        subject: formData.subject,
+      };
+
+      console.log('Sending email with params:', templateParams); // For debugging
+
+      const result = await emailjs.send(
         process.env.REACT_APP_EMAILJS_SERVICE_ID,
         process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
-        {
-          from_name: formData.name,
-          reply_to: formData.email,
-          subject: formData.subject,
-          message: formData.message
-        },
+        templateParams,
         process.env.REACT_APP_EMAILJS_PUBLIC_KEY
       );
+
+      console.log('EmailJS Response:', result); // For debugging
 
       setStatus({
         loading: false,
@@ -56,6 +73,7 @@ export default function Contact() {
         message: ''
       });
     } catch (error) {
+      console.error('EmailJS Error:', error);
       setStatus({
         loading: false,
         success: false,
@@ -75,7 +93,7 @@ export default function Contact() {
     {
       icon: <Phone className="h-6 w-6" />,
       title: "Phone",
-      content: "+1 (234) 567-8900",
+      content: "+91 9910029473",
       link: "tel:+12345678900"
     },
     {
